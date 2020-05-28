@@ -12,14 +12,14 @@ namespace Rechner
 		public int UserOption()
 		{
 			int Eingabe;
-			Console.WriteLine("Was wollen sie Rechnen?\nBruchrechnen(1)\nRechnen mit Grundrechenarten(2)\n ");
+			Console.WriteLine("Was wollen sie Rechnen?\nBruchrechnen(1)\nRechnen mit Grundrechenarten(2) ");
 			Eingabe = Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
 			return Eingabe;
 		}
 		public Bruch UserBruch()
 		{
 			int[] temp = new int[4];
-			Console.Write("Bruchrechnung\nGeben sie den Zaeler des Bruches ein: \n");
+			Console.Write("Geben sie den Zaeler des Bruches ein: \n");
 			temp[0] = Convert.ToInt32(Console.ReadLine());
 			Console.Write("Geben sie den Nenner des Bruches ein: \n");
 			temp[1] = Convert.ToInt32(Console.ReadLine());
@@ -33,7 +33,7 @@ namespace Rechner
 		public double UserGrund()
 		{
 			double Zahl;
-			Console.Write("Geben sie ihre Zahl ein!: ");
+			Console.Write("\nGeben sie ihre Zahl ein!: ");
 			Zahl = Convert.ToDouble(Console.ReadLine());
 			return Zahl;
 		}
