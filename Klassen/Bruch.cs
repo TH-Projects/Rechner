@@ -89,14 +89,22 @@ namespace Rechner
 		//Division von Brüchen
 		public void DivBruch(Bruch bruch2)
 		{
-			//Zwischenspeicherung des Zählers, da dieser Verändert wird
-			int tempzael = bruch2.Zaehler;
-			//Vertauschung von Nenner und Zähler des zweiten Bruches
-			bruch2.Zaehler = bruch2.Nenner;
-			bruch2.Nenner = tempzael;
-			//Einfach Zähler mal Zähler und Nenner mal Nenner
-			Nenner *= bruch2.Nenner;
-			Zaehler *= bruch2.Zaehler;
+			try
+			{
+				//Zwischenspeicherung des Zählers, da dieser Verändert wird
+				int tempzael = bruch2.Zaehler;
+				//Vertauschung von Nenner und Zähler des zweiten Bruches
+				bruch2.Zaehler = bruch2.Nenner;
+				bruch2.Nenner = tempzael;
+				//Einfach Zähler mal Zähler und Nenner mal Nenner
+				Nenner *= bruch2.Nenner;
+				Zaehler *= bruch2.Zaehler;
+			}
+			catch (DivideByZeroException)
+			{
+				Console.WriteLine("Es kann nicht durch 0 geteilt werden!\nBitte starten sie das Programm erneut!");
+				Console.ReadKey();
+			}
 		}
 	}
 }

@@ -6,7 +6,7 @@ namespace Rechner
 {
 	class Program
 	{
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
 			double Zahl1 = 0;
 			double Zahl2 = 0;
@@ -35,7 +35,7 @@ namespace Rechner
 					//Aufruf Methode AuswGrund
 					AuswGrund(Zahl1, Zahl2);
 					break;
-			}			
+			}
 			//Damit Die scheiß Konsole nicht zu geht!!!
 			Console.ReadKey();
 		} 
@@ -105,5 +105,6 @@ namespace Rechner
 					break;
 			}
 		}
+		
 	}
 } 
