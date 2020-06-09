@@ -100,9 +100,16 @@ namespace Rechner
 				Nenner *= bruch2.Nenner;
 				Zaehler *= bruch2.Zaehler;
 			}
+			//Exception handling, falls versucht wurde durch 0 zu teilen
 			catch (DivideByZeroException)
 			{
 				Console.WriteLine("Es kann nicht durch 0 geteilt werden!\nBitte starten sie das Programm erneut!");
+				Console.ReadKey();
+			}
+			//Exception handling, falls andere exception
+			catch (Exception)
+			{
+				Console.WriteLine("Fehler! Bitte starten sie das Programm neu.");
 				Console.ReadKey();
 			}
 		}

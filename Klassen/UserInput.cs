@@ -26,9 +26,17 @@ namespace Rechner
 				//Rückgabe des Ergebnisses der Eingabe
 				return Eingabe;
 			}
+			//Exeption handling, wenn Format exeption aufritt
 			catch (FormatException)
 			{
 				Console.WriteLine("Es liegt ein Fehler bei der Eingabe vor!\nBitte starten sie das Programm erneut!");
+				Console.ReadKey();
+				return 0;
+			}
+			//Exception handling, falls andere exception
+			catch (Exception)
+			{
+				Console.WriteLine("Fehler! Bitte starten sie das Programm neu.");
 				Console.ReadKey();
 				return 0;
 			}
@@ -52,9 +60,17 @@ namespace Rechner
 				//Rückgabe des Arrays
 				return CreateBruch(temp);
 			}
+			//Exeption handling, wenn Format exeption aufritt
 			catch (FormatException)
 			{
 				Console.WriteLine("Es liegt ein Fehler bei der Eingabe vor!\nBitte starten sie das Programm erneut!");
+				Console.ReadKey();
+				return null;
+			}
+			//Exception handling, falls andere exception
+			catch (Exception)
+			{
+				Console.WriteLine("Fehler! Bitte starten sie das Programm neu.");
 				Console.ReadKey();
 				return null;
 			}
@@ -80,13 +96,20 @@ namespace Rechner
 				//Rückgabe Zahl
 				return Zahl;
 			}
+			//Exeption handling, wenn Format exeption aufritt
 			catch (FormatException)
 			{
 				Console.WriteLine("Es liegt ein Fehler bei der Eingabe vor!\nBitte starten sie das Programm erneut!");
 				Console.ReadKey();
 				return 0;
 			}
+			//Exception handling, falls andere exception
+			catch(Exception)
+			{
+				Console.WriteLine("Fehler! Bitte starten sie das Programm neu.");
+				Console.ReadKey();
+				return 0;
+			}
 		}
-		
 	}
 }
