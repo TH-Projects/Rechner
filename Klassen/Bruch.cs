@@ -9,6 +9,8 @@ namespace Rechner
 		//Definition der Bruchkomponenten
 		int Nenner = 1;
 		int Zaehler = 1;
+		//Erstellung eines UserInput Objekts
+		UserInput userInput = new UserInput();
 		public Bruch(int Zaeler, int Nenner)
 		{
 			//Abfrage zur Vorbeugungen von unnötigen Schritten, da Rechnen mit Null als Nenner unnötig
@@ -103,14 +105,14 @@ namespace Rechner
 			//Exception handling, falls versucht wurde durch 0 zu teilen
 			catch (DivideByZeroException)
 			{
-				Console.WriteLine("Es kann nicht durch 0 geteilt werden!\nBitte starten sie das Programm erneut!");
-				Console.ReadKey();
+				//Aufruf der Methode in der Klasse UserInput
+				userInput.DivZeroExMessage();
 			}
 			//Exception handling, falls andere exception
 			catch (Exception)
 			{
-				Console.WriteLine("Fehler! Bitte starten sie das Programm neu.");
-				Console.ReadKey();
+				//Aufruf der Methode in der Klasse UserInput
+				userInput.ExMessage();
 			}
 		}
 	}

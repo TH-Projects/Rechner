@@ -21,6 +21,8 @@ namespace Rechner
 				Console.WriteLine("Was wollen sie Rechnen?\nBruchrechnen(1)\nRechnen mit Grundrechenarten(2) ");
 				//Zuweisung der Eingabe zu Variable
 				Eingabe = Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
+				//Abwarten
+				Console.ReadKey();
 				//Konsole berreinigen
 				Console.Clear();
 				//Rückgabe des Ergebnisses der Eingabe
@@ -29,19 +31,17 @@ namespace Rechner
 			//Exeption handling, wenn Format exeption aufritt
 			catch (FormatException)
 			{
-				Console.WriteLine("Es liegt ein Fehler bei der Eingabe vor!\nBitte starten sie das Programm erneut!");
-				Console.ReadKey();
+				FormExMessage();
 				return 0;
 			}
 			//Exception handling, falls andere exception
 			catch (Exception)
 			{
-				Console.WriteLine("Fehler! Bitte starten sie das Programm neu.");
-				Console.ReadKey();
+				ExMessage();
 				return 0;
 			}
 		}
-		
+
 		//Benutzereingabe des Bruches
 		public Bruch UserBruch()
 		{
@@ -63,15 +63,13 @@ namespace Rechner
 			//Exeption handling, wenn Format exeption aufritt
 			catch (FormatException)
 			{
-				Console.WriteLine("Es liegt ein Fehler bei der Eingabe vor!\nBitte starten sie das Programm erneut!");
-				Console.ReadKey();
+				FormExMessage();
 				return null;
 			}
 			//Exception handling, falls andere exception
 			catch (Exception)
 			{
-				Console.WriteLine("Fehler! Bitte starten sie das Programm neu.");
-				Console.ReadKey();
+				ExMessage();
 				return null;
 			}
 		}
@@ -99,17 +97,72 @@ namespace Rechner
 			//Exeption handling, wenn Format exeption aufritt
 			catch (FormatException)
 			{
-				Console.WriteLine("Es liegt ein Fehler bei der Eingabe vor!\nBitte starten sie das Programm erneut!");
-				Console.ReadKey();
+				FormExMessage();
 				return 0;
 			}
 			//Exception handling, falls andere exception
-			catch(Exception)
+			catch (Exception)
 			{
-				Console.WriteLine("Fehler! Bitte starten sie das Programm neu.");
-				Console.ReadKey();
+				ExMessage();
 				return 0;
 			}
+		}
+		public int Repeat()
+		{
+			//Deklariation von Variable für Benutzereingabe
+			char Eingabe = ' ';
+			//Output Frage
+			Console.WriteLine("Wollen sie noch mehr rechnen? Y/N");
+			//Zuweisung der Antwort zu Variable
+			Eingabe = Convert.ToChar(Console.ReadLine());
+			try
+			{
+				//Bei Eingabe y/Y wird 1 returnt
+				if (Eingabe == 'y' || Eingabe == 'Y')
+				{
+					return 1;
+				}
+				//Bei Eingabe n/N wird 2 returnt
+				else if (Eingabe == 'n' || Eingabe == 'N')
+				{
+					return 2;
+				}
+			}
+			//Allgemeines Exeption handling
+			catch (Exception)
+			{
+				//Aufrug Methode ExMessage()
+				ExMessage();
+			}
+			return 0;
+		}
+
+		//Message bei FormatException
+		public void FormExMessage()
+		{
+			//Output Nachricht
+			Console.WriteLine("Es liegt ein Fehler bei der Eingabe vor!\nBitte starten sie das Programm erneut!");
+			Console.ReadKey();
+			//Beendingung des programms
+			Environment.Exit(1);
+		}
+		//Message bei DivisionbyZero Exception
+		public void DivZeroExMessage()
+		{
+			//Output Nachricht
+			Console.WriteLine("Es kann nicht durch 0 geteilt werden!\nBitte starten sie das Programm erneut!");
+			Console.ReadKey();
+			//Beendingung des programms
+			Environment.Exit(1);
+		}
+		//Message bei anderer Exception
+		public void ExMessage()
+		{
+			//Output Message
+			Console.WriteLine("Fehler! Bitte starten sie das Programm neu.");
+			Console.ReadKey();
+			//Beendigung des programms
+			Environment.Exit(1);
 		}
 	}
 }

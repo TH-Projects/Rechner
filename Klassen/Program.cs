@@ -8,6 +8,7 @@ namespace Rechner
 	{
 		public static void Main(string[] args)
 		{
+			Program programm = new Program();
 			double Zahl1 = 0;
 			double Zahl2 = 0;
 			//Erstellung des Objekts UserInput
@@ -36,8 +37,7 @@ namespace Rechner
 					AuswGrund(Zahl1, Zahl2);
 					break;
 			}
-			//Damit Die scheiß Konsole nicht zu geht!!!
-			Console.ReadKey();
+			programm.Nochmal();
 		} 
 		static void AuswBruch(Bruch bruch, Bruch bruch2)
 		{
@@ -105,6 +105,33 @@ namespace Rechner
 					break;
 			}
 		}
-		
+		//Abfrage ob nochmal gerechnet werden soll
+		public void Nochmal()
+		{
+			//Erstellung Objekt von der Klasse UserInput
+			UserInput userInput = new UserInput();
+			//Erstellung string Arrays zum Aufruf der programm.Main()
+			string[] bla = new string[1];
+			//Zuweisung der Benutzereingabe zu Variable
+			int antw = userInput.Repeat();
+			
+			switch (antw)
+			{
+				//Wenn eins wird Wiederholt durch aufruf der Main Methode
+				case 1:
+					Main(bla);
+					break;
+				//Wenn zwei beendigung des Programms
+				case 2:
+					Environment.Exit(1);
+					break;
+				//Bei Fehler wird Abfrage wiederholt
+				default:
+					Console.WriteLine("Fehler!");
+					//Erneuter Aufruf der Nochmal() Methode
+					Nochmal();
+					break;
+			}
+		}
 	}
 } 
