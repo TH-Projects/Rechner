@@ -21,7 +21,7 @@ namespace Rechner
 			}
 			else
 			{
-				//Ausgabe das ein Fehler vorliegt
+				//Ausgabe, dass ein Fehler vorliegt
 				Console.WriteLine("Fehler");
 			}
 		}
@@ -74,16 +74,16 @@ namespace Rechner
 			Nenner *= bruch2.Nenner;
 			//Multiplikation mit den Nenner des zweiten Bruches
 			Zaehler *= bruch2.Nenner;
-			//Nennermultiplikation mit Zwischengespeichertem Nenner des ersten Bruches
+			//Nennermultiplikation mit zwischengespeichertem Nenner des ersten Bruches
 			bruch2.Nenner *= tempnenn;
-			//Nennermultiplikation mit Zwischengespeichertem Nenner des ersten Bruches
+			//Zählermultiplikation mit zwischengespeichertem Nenner des ersten Bruches
 			bruch2.Zaehler *= tempnenn;
 		}
 
 		//Multiplikation von Brüchen
 		public void Multibruch(Bruch bruch2)
 		{
-			//Einfach Zähler mal Zähler und Nenner mal Nenner
+			//Zähler mal Zähler und Nenner mal Nenner
 			Nenner *= bruch2.Nenner;
 			Zaehler *= bruch2.Zaehler;
 		}
@@ -93,7 +93,7 @@ namespace Rechner
 		{
 			try
 			{
-				//Zwischenspeicherung des Zählers, da dieser Verändert wird
+				//Zwischenspeicherung des Zählers, da dieser verändert wird
 				int tempzael = bruch2.Zaehler;
 				//Vertauschung von Nenner und Zähler des zweiten Bruches
 				bruch2.Zaehler = bruch2.Nenner;
@@ -105,13 +105,13 @@ namespace Rechner
 			//Exception handling, falls versucht wurde durch 0 zu teilen
 			catch (DivideByZeroException)
 			{
-				//Aufruf der Methode in der Klasse UserInput
+				//Aufruf einer Methode in der Klasse UserInput
 				userInput.DivZeroExMessage();
 			}
 			//Exception handling, falls andere exception
 			catch (Exception)
 			{
-				//Aufruf der Methode in der Klasse UserInput
+				//Aufruf einer Methode in der Klasse UserInput
 				userInput.ExMessage();
 			}
 		}

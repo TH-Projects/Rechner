@@ -14,7 +14,7 @@ namespace Rechner
 			//Erstellung des Objekts UserInput
 			UserInput userInput = new UserInput();
 			
-			//Aufruf der Abrage der Rechnungsart und Zuweisung zu einer Variablen
+			//Abfrage der Rechnungsart
 			int Decision = userInput.UserOption();
 			switch (Decision)
 			{
@@ -41,7 +41,7 @@ namespace Rechner
 		} 
 		static void AuswBruch(Bruch bruch, Bruch bruch2)
 		{
-			//Das sollte man sich Wohl denken können
+			//Ausgabe Frage zu Opperator
 			Console.Write("Geben sie ihren Rechenoperator ein:(+,-,*,/) \n");
 			switch (Convert.ToChar(Console.ReadLine()))
 			{
@@ -77,9 +77,9 @@ namespace Rechner
 		}
 		static void AuswGrund(double Zahl1,double Zahl2)
 		{
-			//Erstellung des Objekts Grundrechnung
+			//Erstellung des Objekts Rechnen
 			Grundrechenarten Rechnen = new Grundrechenarten(Zahl1, Zahl2);
-			//Mitlerweile solltest du es nicht wissen
+			//Ausgabe Frage nach Opperator
 			Console.Write("Geben sie ihren Rechenoperator ein:(+,-,*,/) \n");
 			switch (Convert.ToChar(Console.ReadLine()))
 			{
@@ -110,14 +110,14 @@ namespace Rechner
 		{
 			//Erstellung Objekt von der Klasse UserInput
 			UserInput userInput = new UserInput();
-			//Erstellung string Arrays zum Aufruf der programm.Main()
+			//Erstellung eines string Arrays zum Aufruf der Program.Main()
 			string[] bla = new string[1];
-			//Zuweisung der Benutzereingabe zu Variable
+			//Zuweisung der Benutzereingabe zu einer Variablen
 			int antw = userInput.Repeat();
 			
 			switch (antw)
 			{
-				//Wenn eins wird Wiederholt durch aufruf der Main Methode
+				//Wenn eins, wird die Main-Methode wiederholt
 				case 1:
 					Main(bla);
 					break;
@@ -128,10 +128,73 @@ namespace Rechner
 				//Bei Fehler wird Abfrage wiederholt
 				default:
 					Console.WriteLine("Fehler!");
-					//Erneuter Aufruf der Nochmal() Methode
+					//Erneuter Aufruf der Nochmal()-Methode
 					Nochmal();
 					break;
 			}
 		}
 	}
 } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Dieses Programm wurde für gehirnamputierte Affen kommentiert

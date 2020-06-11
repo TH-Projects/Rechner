@@ -11,7 +11,6 @@ namespace Rechner
 		double Zahl2 = 0;
 		public Grundrechenarten(double Zahl1,double Zahl2)
 		{
-			//Zuweisung der Variablen zum späteren Objekt
 			this.Zahl1 = Zahl1;
 			this.Zahl2 = Zahl2;
 		}

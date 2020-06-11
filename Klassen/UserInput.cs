@@ -11,7 +11,7 @@ namespace Rechner
 		{
 		}
 
-		//Hier wird Augewählt was gerrechnet werden soll
+		//Auswahl was gerrechnet werden soll
 		public int UserOption()
 		{
 			int Eingabe;
@@ -25,16 +25,16 @@ namespace Rechner
 				Console.ReadKey();
 				//Konsole berreinigen
 				Console.Clear();
-				//Rückgabe des Ergebnisses der Eingabe
+				//Rückgabe der Eingabe
 				return Eingabe;
 			}
-			//Exeption handling, wenn Format exeption aufritt
+			//Exeption handling, wenn Format-Exception aufritt
 			catch (FormatException)
 			{
 				FormExMessage();
 				return 0;
 			}
-			//Exception handling, falls andere exception
+			//Exception handling, falls andere Exception
 			catch (Exception)
 			{
 				ExMessage();
@@ -49,24 +49,24 @@ namespace Rechner
 			{
 				//Erstellung eines Arrays zum speichern der Bruchwerte
 				int[] temp = new int[2];
-				//Eingabeaufforderung für den Zaeler
+				//Eingabeaufforderung für den Zähler
 				Console.Write("Geben sie den Zaeler des Bruches ein: \n");
-				//Zuweisung zu ArrayIndex[0]
+				//Zuweisung zu Array index 0
 				temp[0] = Convert.ToInt32(Console.ReadLine());
-				//Eigabeaufforderung für Nenner
+				//Eigabeaufforderung für den Nenner
 				Console.Write("Geben sie den Nenner des Bruches ein: \n");
-				//Zuweisung zu Arrayindex[1]
+				//Zuweisung zu Array index 1
 				temp[1] = Convert.ToInt32(Console.ReadLine());
 				//Rückgabe des Arrays
 				return CreateBruch(temp);
 			}
-			//Exeption handling, wenn Format exeption aufritt
+			//Exeption handling, wenn Format-Exception aufritt
 			catch (FormatException)
 			{
 				FormExMessage();
 				return null;
 			}
-			//Exception handling, falls andere exception
+			//Exception handling, falls andere Exception
 			catch (Exception)
 			{
 				ExMessage();
@@ -76,7 +76,7 @@ namespace Rechner
 		//Erstellung des Bruches
 		private Bruch CreateBruch(int[] temp)
 		{
-			//Erstellung...was sonst
+			//Erstellung des Bruches
 			Bruch bruch = new Bruch(temp[0], temp[1]);
 			//Rüchgabe des Bruches an Program.cs
 			return bruch;
@@ -94,13 +94,13 @@ namespace Rechner
 				//Rückgabe Zahl
 				return Zahl;
 			}
-			//Exeption handling, wenn Format exeption aufritt
+			//Exeption handling, wenn Format-Exception aufritt
 			catch (FormatException)
 			{
 				FormExMessage();
 				return 0;
 			}
-			//Exception handling, falls andere exception
+			//Exception handling, falls andere Exception
 			catch (Exception)
 			{
 				ExMessage();
@@ -111,7 +111,7 @@ namespace Rechner
 		{
 			//Deklariation von Variable für Benutzereingabe
 			char Eingabe = ' ';
-			//Output Frage
+			//Ausgabe Frage
 			Console.WriteLine("Wollen sie noch mehr rechnen? Y/N");
 			//Zuweisung der Antwort zu Variable
 			Eingabe = Convert.ToChar(Console.ReadLine());
@@ -137,31 +137,31 @@ namespace Rechner
 			return 0;
 		}
 
-		//Message bei FormatException
+		//Nachricht bei Format-Exception
 		public void FormExMessage()
 		{
 			//Output Nachricht
 			Console.WriteLine("Es liegt ein Fehler bei der Eingabe vor!\nBitte starten sie das Programm erneut!");
 			Console.ReadKey();
-			//Beendingung des programms
+			//Beendigung des Programms
 			Environment.Exit(1);
 		}
-		//Message bei DivisionbyZero Exception
+		//Nachricht bei DivisionbyZero Exception
 		public void DivZeroExMessage()
 		{
-			//Output Nachricht
+			//Ausgabe Nachricht
 			Console.WriteLine("Es kann nicht durch 0 geteilt werden!\nBitte starten sie das Programm erneut!");
 			Console.ReadKey();
-			//Beendingung des programms
+			//Beendingung des Programms
 			Environment.Exit(1);
 		}
-		//Message bei anderer Exception
+		//Nachricht bei anderer Exception
 		public void ExMessage()
 		{
-			//Output Message
+			//Ausgabe Message
 			Console.WriteLine("Fehler! Bitte starten sie das Programm neu.");
 			Console.ReadKey();
-			//Beendigung des programms
+			//Beendigung des Programms
 			Environment.Exit(1);
 		}
 	}
