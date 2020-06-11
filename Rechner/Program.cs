@@ -7,7 +7,6 @@ namespace Rechner
 	{
 		public static void Main(string[] args)
 		{
-			Program programm = new Program();
 			double Zahl1 = 0;
 			double Zahl2 = 0;
 			//Erstellung des Objekts UserInput
@@ -36,7 +35,7 @@ namespace Rechner
 					AuswGrund(Zahl1, Zahl2);
 					break;
 			}
-			programm.Nochmal();
+			Nochmal();
 		} 
 		static void AuswBruch(Bruch bruch, Bruch bruch2)
 		{
@@ -105,7 +104,7 @@ namespace Rechner
 			}
 		}
 		//Abfrage ob nochmal gerechnet werden soll
-		public void Nochmal()
+		public static void Nochmal()
 		{
 			//Erstellung Objekt von der Klasse UserInput
 			UserInput userInput = new UserInput();
