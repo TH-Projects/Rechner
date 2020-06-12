@@ -76,7 +76,7 @@ namespace Rechner
 		{
 			//Erstellung des Bruches
 			Bruch bruch = new Bruch(temp[0], temp[1]);
-			//Rüchgabe des Bruches an Program.cs
+			//Rüchgabe des Bruches
 			return bruch;
 		}
 		//Benutzereingabe für Grundrechnung

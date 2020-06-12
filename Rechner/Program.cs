@@ -7,7 +7,10 @@ namespace Rechner
 	{
 		public static void Main(string[] args)
 		{
+<<<<<<< HEAD
 			Program programm = new Program();
+=======
+>>>>>>> a0f822003228d5c44c398747d832dca06adadefd
 			double Zahl1 = 0;
 			double Zahl2 = 0;
 			//Erstellung des Objekts UserInput
@@ -36,7 +39,11 @@ namespace Rechner
 					AuswGrund(Zahl1, Zahl2);
 					break;
 			}
+<<<<<<< HEAD
 			programm.Nochmal();
+=======
+			Nochmal();
+>>>>>>> a0f822003228d5c44c398747d832dca06adadefd
 		} 
 		static void AuswBruch(Bruch bruch, Bruch bruch2)
 		{
@@ -105,7 +112,11 @@ namespace Rechner
 			}
 		}
 		//Abfrage ob nochmal gerechnet werden soll
+<<<<<<< HEAD
 		public void Nochmal()
+=======
+		public static void Nochmal()
+>>>>>>> a0f822003228d5c44c398747d832dca06adadefd
 		{
 			//Erstellung Objekt von der Klasse UserInput
 			UserInput userInput = new UserInput();
