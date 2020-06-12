@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace Rechner
 {
 	class UserInput
@@ -14,8 +13,7 @@ namespace Rechner
 			int Eingabe;
 			try
 			{
-				//Zuweisung der Eingabe zu Variable
-				Eingabe = Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
+				Eingabe=Modechoose();
 			}
 			//Exeption handling, wenn Format-Exception aufritt
 			catch (FormatException)
@@ -29,12 +27,34 @@ namespace Rechner
 				ExMessage();
 				return 0;
 			}
-			//Abwarten
-			Console.ReadKey();
 			//Konsole berreinigen
 			Console.Clear();
 			//Rückgabe der Eingabe
 			return Eingabe;
+		}
+		private static int Modechoose()
+		{
+			//Zuweisung der Eingabe zu Variable
+			string Eingabe = Console.ReadLine();
+			if (Eingabe.Length == 1)
+			{
+				try
+				{
+					return Convert.ToInt32(Eingabe);
+				}
+				catch (FormatException)
+				{
+					FormExMessage();
+					return 0;
+				}
+				
+			}
+			else
+			{
+				Console.Write("Die Eingabe darf nur ein Zeichen lang sein!\nBitte Eingabe erneut versuchen!\n> ");
+				return Modechoose();
+			}
+			
 		}
 
 		//Benutzereingabe des Bruches
