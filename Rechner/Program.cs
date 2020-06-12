@@ -7,12 +7,6 @@ namespace Rechner
 	{
 		public static void Main(string[] args)
 		{
-<<<<<<< HEAD
-			Program programm = new Program();
-=======
->>>>>>> a0f822003228d5c44c398747d832dca06adadefd
-			double Zahl1 = 0;
-			double Zahl2 = 0;
 			//Erstellung des Objekts UserInput
 			UserInput userInput = new UserInput();
 			
@@ -33,17 +27,13 @@ namespace Rechner
 				//Auswahl: Grundrechnung
 				case 2:
 					//Zuweisung der Zahlen eins und zwei
-					Zahl1 = userInput.UserGrund();
-					Zahl2 = userInput.UserGrund();
+					double Zahl1 = userInput.UserGrund();
+					double Zahl2 = userInput.UserGrund();
 					//Aufruf Methode AuswGrund
 					AuswGrund(Zahl1, Zahl2);
 					break;
 			}
-<<<<<<< HEAD
-			programm.Nochmal();
-=======
 			Nochmal();
->>>>>>> a0f822003228d5c44c398747d832dca06adadefd
 		} 
 		static void AuswBruch(Bruch bruch, Bruch bruch2)
 		{
@@ -112,11 +102,8 @@ namespace Rechner
 			}
 		}
 		//Abfrage ob nochmal gerechnet werden soll
-<<<<<<< HEAD
-		public void Nochmal()
-=======
 		public static void Nochmal()
->>>>>>> a0f822003228d5c44c398747d832dca06adadefd
+
 		{
 			//Erstellung Objekt von der Klasse UserInput
 			UserInput userInput = new UserInput();

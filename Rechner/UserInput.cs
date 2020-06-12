@@ -12,13 +12,12 @@ namespace Rechner
 		//Auswahl was gerrechnet werden soll
 		public int UserOption()
 		{
-			int Eingabe;
 			try
 			{
 				//Frage nach Eingabe
 				Console.WriteLine("Was wollen sie Rechnen?\nBruchrechnen(1)\nRechnen mit Grundrechenarten(2) ");
 				//Zuweisung der Eingabe zu Variable
-				Eingabe = Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
+				int Eingabe = Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
 				//Abwarten
 				Console.ReadKey();
 				//Konsole berreinigen
@@ -84,11 +83,10 @@ namespace Rechner
 		{
 			try
 			{
-				double Zahl;
 				//Eingabeaufforderung
 				Console.Write("Geben sie ihre Zahl ein!: \n");
 				//Zuweisung der Eingabe zu Variable
-				Zahl = Convert.ToDouble(Console.ReadLine());
+				double Zahl = Convert.ToDouble(Console.ReadLine());
 				//Rückgabe Zahl
 				return Zahl;
 			}
@@ -107,12 +105,10 @@ namespace Rechner
 		}
 		public int Repeat()
 		{
-			//Deklariation von Variable für Benutzereingabe
-			char Eingabe = ' ';
 			//Ausgabe Frage
 			Console.WriteLine("Wollen sie noch mehr rechnen? Y/N");
 			//Zuweisung der Antwort zu Variable
-			Eingabe = Convert.ToChar(Console.ReadLine());
+			char Eingabe = Convert.ToChar(Console.ReadLine());
 			try
 			{
 				//Bei Eingabe y/Y wird 1 returnt
