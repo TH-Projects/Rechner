@@ -5,38 +5,29 @@ namespace Rechner
 {
 	class Grundrechenarten
 	{
-		//Definition der Komponenten zum Rechnen
-		double Zahl1 = 0;
-		double Zahl2 = 0;
-		public Grundrechenarten(double Zahl1,double Zahl2)
-		{
-			this.Zahl1 = Zahl1;
-			this.Zahl2 = Zahl2;
-		}
-
 		//Addition
-		public double Addition(double Zahl1, double Zahl2)
+		public static double Addition(double Zahl1, double Zahl2)
 		{
 			//Rückgabe der addierten Zahlen
 			return Zahl1 + Zahl2;
 		}
 
 		//Subtraktion
-		public double Subtraktion(double Zahl1, double Zahl2)
+		public static double Subtraktion(double Zahl1, double Zahl2)
 		{
 			//Rückgabe der subtrahierten Zahlen
 			return Zahl1 - Zahl2;
 		}
 
 		//Multiplikation
-		public double Multiplikation(double Zahl1, double Zahl2)
+		public static double Multiplikation(double Zahl1, double Zahl2)
 		{
 			//Rückgabe der multiplizierten Zahlen
 			return Zahl1 * Zahl2;
 		}
 
 		//Division
-		public double Division(double Zahl1, double Zahl2)
+		public static double Division(double Zahl1, double Zahl2)
 		{
 			//Abfrage, da nicht duch null geteilt werden kann
 			if (Zahl2 != 0)

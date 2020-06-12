@@ -73,27 +73,25 @@ namespace Rechner
 		}
 		static void AuswGrund(double Zahl1,double Zahl2)
 		{
-			//Erstellung des Objekts Rechnen
-			Grundrechenarten Rechnen = new Grundrechenarten(Zahl1, Zahl2);
 			//Ausgabe Frage nach Opperator
 			Console.Write("Geben sie ihren Rechenoperator ein:(+,-,*,/) \n");
 			switch (Convert.ToChar(Console.ReadLine()))
 			{
 				case '+':
 					//Aufruf der Addition mit Ausgabe
-					Console.WriteLine(Rechnen.Addition(Zahl1,Zahl2));
+					Console.WriteLine(Grundrechenarten.Addition(Zahl1,Zahl2));
 					break;
 				case '-':
 					//Aufruf der Subtraktion mit Ausgabe
-					Console.WriteLine(Rechnen.Subtraktion(Zahl1, Zahl2));
+					Console.WriteLine(Grundrechenarten.Subtraktion(Zahl1, Zahl2));
 					break;
 				case '*':
 					//Aufruf der Multiplikation mit Ausgabe
-					Console.WriteLine(Rechnen.Multiplikation(Zahl1, Zahl2));
+					Console.WriteLine(Grundrechenarten.Multiplikation(Zahl1, Zahl2));
 					break;
 				case '/':
 					//Aufruf der Division mit Ausgabe
-					Console.WriteLine(Rechnen.Division(Zahl1, Zahl2));
+					Console.WriteLine(Grundrechenarten.Division(Zahl1, Zahl2));
 					break;
 				default:
 					//Wenn falscher Opperator
