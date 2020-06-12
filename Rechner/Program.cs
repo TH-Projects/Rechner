@@ -29,6 +29,10 @@ namespace Rechner
 					//Aufruf Methode AuswGrund
 					AuswGrund(Zahl1, Zahl2);
 					break;
+
+				default:
+					Main(new string [1]);
+					break;
 			}
 			Nochmal();
 		}
@@ -102,8 +106,6 @@ namespace Rechner
 		{
 			//Erstellung Objekt von der Klasse UserInput
 			UserInput userInput = new UserInput();
-			//Erstellung eines string Arrays zum Aufruf der Program.Main()
-			string[] bla = new string[1];
 			//Zuweisung der Benutzereingabe zu einer Variablen
 			int antw = UserInput.Repeat();
 
@@ -111,7 +113,7 @@ namespace Rechner
 			{
 				//Wenn eins, wird die Main-Methode wiederholt
 				case 1:
-					Main(bla);
+					Main(new string [1]);
 					break;
 				//Wenn zwei beendigung des Programms
 				case 2:

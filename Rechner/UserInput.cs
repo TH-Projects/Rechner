@@ -125,7 +125,7 @@ namespace Rechner
 		public static int Repeat()
 		{
 			//Ausgabe Frage
-			Console.WriteLine("Wollen sie noch mehr rechnen? Y/N");
+			Console.WriteLine("Wollen sie rechnen? Y/N");
 			//Zuweisung der Antwort zu Variable
 			char Eingabe = Convert.ToChar(Console.ReadLine());
 			//Bei Eingabe y/Y wird 1 returnt
