@@ -6,20 +6,17 @@ namespace Rechner
 	class Program
 	{
 		public static void Main(string[] args)
-		{
-			//Erstellung des Objekts UserInput
-			UserInput userInput = new UserInput();
-			
+		{	
 			//Abfrage der Rechnungsart
-			int Decision = userInput.UserOption();
+			int Decision = UserInput.UserOption();
 			switch (Decision)
 			{
 				//Auswahl: Bruchrechnen
 				case 1:
 					//Erstellung Bruch eins
-					Bruch bruch = userInput.UserBruch();
+					Bruch bruch = UserInput.UserBruch();
 					//Erstellung Bruch zwei
-					Bruch bruch2 = userInput.UserBruch();
+					Bruch bruch2 = UserInput.UserBruch();
 					//Aufruf Methode AuswBruch
 					AuswBruch(bruch, bruch2);
 					break;
@@ -27,8 +24,8 @@ namespace Rechner
 				//Auswahl: Grundrechnung
 				case 2:
 					//Zuweisung der Zahlen eins und zwei
-					double Zahl1 = userInput.UserGrund();
-					double Zahl2 = userInput.UserGrund();
+					double Zahl1 = UserInput.UserGrund();
+					double Zahl2 = UserInput.UserGrund();
 					//Aufruf Methode AuswGrund
 					AuswGrund(Zahl1, Zahl2);
 					break;
@@ -108,7 +105,7 @@ namespace Rechner
 			//Erstellung eines string Arrays zum Aufruf der Program.Main()
 			string[] bla = new string[1];
 			//Zuweisung der Benutzereingabe zu einer Variablen
-			int antw = userInput.Repeat();
+			int antw = UserInput.Repeat();
 			
 			switch (antw)
 			{
@@ -130,66 +127,3 @@ namespace Rechner
 		}
 	}
 } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Dieses Programm wurde für gehirnamputierte Affen kommentiert

@@ -42,10 +42,9 @@ namespace Rechner
 				//Warten, dass Fehlermeldung gelesen werden kann
 				Console.ReadKey();
 				Console.Clear();
-				UserInput Input = new UserInput();
 				//Zuweisung der Zahlen eins und zwei
-				Zahl1 = Input.UserGrund();
-				Zahl2 = Input.UserGrund();
+				Zahl1 = UserInput.UserGrund();
+				Zahl2 = UserInput.UserGrund();
 				//Rekursiever Aufruf der Division mit neuen Zahlen
 				return Division(Zahl1, Zahl2);
 			}

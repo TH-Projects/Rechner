@@ -8,8 +8,6 @@ namespace Rechner
 		//Definition der Bruchkomponenten
 		int Nenner = 1;
 		int Zaehler = 1;
-		//Erstellung eines UserInput Objekts
-		UserInput userInput = new UserInput();
 		public Bruch(int Zaeler, int Nenner)
 		{
 			//Abfrage zur Vorbeugungen von unnötigen Schritten, da Rechnen mit Null als Nenner unnötig
@@ -105,13 +103,13 @@ namespace Rechner
 			catch (DivideByZeroException)
 			{
 				//Aufruf einer Methode in der Klasse UserInput
-				userInput.DivZeroExMessage();
+				UserInput.DivZeroExMessage();
 			}
 			//Exception handling, falls andere exception
 			catch (Exception)
 			{
 				//Aufruf einer Methode in der Klasse UserInput
-				userInput.ExMessage();
+				UserInput.ExMessage();
 			}
 		}
 	}

@@ -5,12 +5,8 @@ namespace Rechner
 {
 	class UserInput
 	{
-		public UserInput()
-		{
-		}
-
 		//Auswahl was gerrechnet werden soll
-		public int UserOption()
+		public static int UserOption()
 		{
 			try
 			{
@@ -40,7 +36,7 @@ namespace Rechner
 		}
 
 		//Benutzereingabe des Bruches
-		public Bruch UserBruch()
+		public static Bruch UserBruch()
 		{
 			try
 			{
@@ -71,7 +67,7 @@ namespace Rechner
 			}
 		}
 		//Erstellung des Bruches
-		private Bruch CreateBruch(int[] temp)
+		private static Bruch CreateBruch(int[] temp)
 		{
 			//Erstellung des Bruches
 			Bruch bruch = new Bruch(temp[0], temp[1]);
@@ -79,7 +75,7 @@ namespace Rechner
 			return bruch;
 		}
 		//Benutzereingabe für Grundrechnung
-		public double UserGrund()
+		public static double UserGrund()
 		{
 			try
 			{
@@ -103,7 +99,7 @@ namespace Rechner
 				return 0;
 			}
 		}
-		public int Repeat()
+		public static int Repeat()
 		{
 			//Ausgabe Frage
 			Console.WriteLine("Wollen sie noch mehr rechnen? Y/N");
@@ -132,7 +128,7 @@ namespace Rechner
 		}
 
 		//Nachricht bei Format-Exception
-		public void FormExMessage()
+		public static void FormExMessage()
 		{
 			//Output Nachricht
 			Console.WriteLine("Es liegt ein Fehler bei der Eingabe vor!\nBitte starten sie das Programm erneut!");
@@ -141,7 +137,7 @@ namespace Rechner
 			Environment.Exit(1);
 		}
 		//Nachricht bei DivisionbyZero Exception
-		public void DivZeroExMessage()
+		public static void DivZeroExMessage()
 		{
 			//Ausgabe Nachricht
 			Console.WriteLine("Es kann nicht durch 0 geteilt werden!\nBitte starten sie das Programm erneut!");
@@ -150,7 +146,7 @@ namespace Rechner
 			Environment.Exit(1);
 		}
 		//Nachricht bei anderer Exception
-		public void ExMessage()
+		public static void ExMessage()
 		{
 			//Ausgabe Message
 			Console.WriteLine("Fehler! Bitte starten sie das Programm neu.");
