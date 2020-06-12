@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace Rechner
 {
 	class Bruch
@@ -88,7 +87,9 @@ namespace Rechner
 		//Division von Brüchen
 		public void DivBruch(Bruch bruch2)
 		{
-			try
+
+
+			if (bruch2.Zaehler != 0)
 			{
 				//Zwischenspeicherung des Zählers, da dieser verändert wird
 				int tempzael = bruch2.Zaehler;
@@ -99,17 +100,10 @@ namespace Rechner
 				Nenner *= bruch2.Nenner;
 				Zaehler *= bruch2.Zaehler;
 			}
-			//Exception handling, falls versucht wurde durch 0 zu teilen
-			catch (DivideByZeroException)
+			else
 			{
-				//Aufruf einer Methode in der Klasse UserInput
 				UserInput.DivZeroExMessage();
-			}
-			//Exception handling, falls andere exception
-			catch (Exception)
-			{
-				//Aufruf einer Methode in der Klasse UserInput
-				UserInput.ExMessage();
+				Environment.Exit(1);
 			}
 		}
 	}

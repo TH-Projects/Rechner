@@ -6,7 +6,7 @@ namespace Rechner
 	class Program
 	{
 		public static void Main(string[] args)
-		{	
+		{
 			//Abfrage der Rechnungsart
 			int Decision = UserInput.UserOption();
 			switch (Decision)
@@ -31,7 +31,7 @@ namespace Rechner
 					break;
 			}
 			Nochmal();
-		} 
+		}
 		static void AuswBruch(Bruch bruch, Bruch bruch2)
 		{
 			//Ausgabe Frage zu Opperator
@@ -68,7 +68,7 @@ namespace Rechner
 					break;
 			}
 		}
-		static void AuswGrund(double Zahl1,double Zahl2)
+		static void AuswGrund(double Zahl1, double Zahl2)
 		{
 			//Ausgabe Frage nach Opperator
 			Console.Write("Geben sie ihren Rechenoperator ein:(+,-,*,/) \n");
@@ -76,7 +76,7 @@ namespace Rechner
 			{
 				case '+':
 					//Aufruf der Addition mit Ausgabe
-					Console.WriteLine(Grundrechenarten.Addition(Zahl1,Zahl2));
+					Console.WriteLine(Grundrechenarten.Addition(Zahl1, Zahl2));
 					break;
 				case '-':
 					//Aufruf der Subtraktion mit Ausgabe
@@ -106,7 +106,7 @@ namespace Rechner
 			string[] bla = new string[1];
 			//Zuweisung der Benutzereingabe zu einer Variablen
 			int antw = UserInput.Repeat();
-			
+
 			switch (antw)
 			{
 				//Wenn eins, wird die Main-Methode wiederholt
@@ -126,4 +126,4 @@ namespace Rechner
 			}
 		}
 	}
-} 
+}

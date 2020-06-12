@@ -8,18 +8,14 @@ namespace Rechner
 		//Auswahl was gerrechnet werden soll
 		public static int UserOption()
 		{
+
+			//Frage nach Eingabe
+			Console.WriteLine("Was wollen sie Rechnen?\nBruchrechnen(1)\nRechnen mit Grundrechenarten(2) ");
+			int Eingabe;
 			try
 			{
-				//Frage nach Eingabe
-				Console.WriteLine("Was wollen sie Rechnen?\nBruchrechnen(1)\nRechnen mit Grundrechenarten(2) ");
 				//Zuweisung der Eingabe zu Variable
-				int Eingabe = Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
-				//Abwarten
-				Console.ReadKey();
-				//Konsole berreinigen
-				Console.Clear();
-				//Rückgabe der Eingabe
-				return Eingabe;
+				Eingabe = Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
 			}
 			//Exeption handling, wenn Format-Exception aufritt
 			catch (FormatException)
@@ -33,25 +29,29 @@ namespace Rechner
 				ExMessage();
 				return 0;
 			}
+			//Abwarten
+			Console.ReadKey();
+			//Konsole berreinigen
+			Console.Clear();
+			//Rückgabe der Eingabe
+			return Eingabe;
 		}
 
 		//Benutzereingabe des Bruches
 		public static Bruch UserBruch()
 		{
+			//Erstellung eines Arrays zum speichern der Bruchwerte
+			int[] temp = new int[2];
+			//Eingabeaufforderung für den Zähler
+			Console.Write("Geben sie den Zaeler des Bruches ein: \n");
 			try
 			{
-				//Erstellung eines Arrays zum speichern der Bruchwerte
-				int[] temp = new int[2];
-				//Eingabeaufforderung für den Zähler
-				Console.Write("Geben sie den Zaeler des Bruches ein: \n");
 				//Zuweisung zu Array index 0
 				temp[0] = Convert.ToInt32(Console.ReadLine());
 				//Eigabeaufforderung für den Nenner
 				Console.Write("Geben sie den Nenner des Bruches ein: \n");
 				//Zuweisung zu Array index 1
 				temp[1] = Convert.ToInt32(Console.ReadLine());
-				//Rückgabe des Arrays
-				return CreateBruch(temp);
 			}
 			//Exeption handling, wenn Format-Exception aufritt
 			catch (FormatException)
@@ -65,6 +65,8 @@ namespace Rechner
 				ExMessage();
 				return null;
 			}
+			//Rückgabe des Arrays
+			return CreateBruch(temp);
 		}
 		//Erstellung des Bruches
 		private static Bruch CreateBruch(int[] temp)
@@ -77,14 +79,13 @@ namespace Rechner
 		//Benutzereingabe für Grundrechnung
 		public static double UserGrund()
 		{
+			//Eingabeaufforderung
+			Console.Write("Geben sie ihre Zahl ein!: \n");
+			double Zahl;
 			try
 			{
-				//Eingabeaufforderung
-				Console.Write("Geben sie ihre Zahl ein!: \n");
 				//Zuweisung der Eingabe zu Variable
-				double Zahl = Convert.ToDouble(Console.ReadLine());
-				//Rückgabe Zahl
-				return Zahl;
+				Zahl = Convert.ToDouble(Console.ReadLine());
 			}
 			//Exeption handling, wenn Format-Exception aufritt
 			catch (FormatException)
@@ -98,6 +99,8 @@ namespace Rechner
 				ExMessage();
 				return 0;
 			}
+			//Rückgabe Zahl
+			return Zahl;
 		}
 		public static int Repeat()
 		{
@@ -105,26 +108,22 @@ namespace Rechner
 			Console.WriteLine("Wollen sie noch mehr rechnen? Y/N");
 			//Zuweisung der Antwort zu Variable
 			char Eingabe = Convert.ToChar(Console.ReadLine());
-			try
+			//Bei Eingabe y/Y wird 1 returnt
+			if (Eingabe == 'y' || Eingabe == 'Y')
 			{
-				//Bei Eingabe y/Y wird 1 returnt
-				if (Eingabe == 'y' || Eingabe == 'Y')
-				{
-					return 1;
-				}
-				//Bei Eingabe n/N wird 2 returnt
-				else if (Eingabe == 'n' || Eingabe == 'N')
-				{
-					return 2;
-				}
+				return 1;
 			}
-			//Allgemeines Exeption handling
-			catch (Exception)
+			//Bei Eingabe n/N wird 2 returnt
+			else if (Eingabe == 'n' || Eingabe == 'N')
 			{
-				//Aufrug Methode ExMessage()
-				ExMessage();
+				return 2;
 			}
-			return 0;
+			else
+			{
+				Console.WriteLine("Ungültige Eingabe");
+				return 0;
+			}
+
 		}
 
 		//Nachricht bei Format-Exception
