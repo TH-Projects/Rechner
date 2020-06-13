@@ -91,10 +91,7 @@ namespace Rechner
 		//Erstellung des Bruches
 		private static Bruch CreateBruch(int[] temp)
 		{
-			//Erstellung des Bruches
-			Bruch bruch = new Bruch(temp[0], temp[1]);
-			//Rüchgabe des Bruches
-			return bruch;
+			return new Bruch(temp[0], temp[1]);
 		}
 		//Benutzereingabe für Grundrechnung
 		public static double UserGrund()
