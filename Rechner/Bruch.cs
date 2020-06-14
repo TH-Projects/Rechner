@@ -62,6 +62,7 @@ namespace Rechner
 				Zaehler -= bruch2.Zaehler;
 			}
 		}
+
 		private void Bruchanpassung(Bruch bruch2)
 		{
 			//Zwischenspeicherung des Nenners, da dieser Verändert wird
@@ -87,8 +88,6 @@ namespace Rechner
 		//Division von Brüchen
 		public void DivBruch(Bruch bruch2)
 		{
-
-
 			if (bruch2.Zaehler != 0)
 			{
 				//Zwischenspeicherung des Zählers, da dieser verändert wird
@@ -103,7 +102,6 @@ namespace Rechner
 			else
 			{
 				UserInput.DivZeroExMessage();
-				Environment.Exit(1);
 			}
 		}
 	}

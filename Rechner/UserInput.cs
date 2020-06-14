@@ -7,13 +7,12 @@ namespace Rechner
 		//Auswahl was gerrechnet werden soll
 		public static int UserOption()
 		{
-
 			//Frage nach Eingabe
-			Console.WriteLine("Was wollen sie Rechnen?\nBruchrechnen(1)\nRechnen mit Grundrechenarten(2) ");
+			Console.Write("Was wollen sie Rechnen?\nBruchrechnen(1)\nRechnen mit Grundrechenarten(2)\n> ");
 			int Eingabe;
 			try
 			{
-				Eingabe=Modechoose();
+				Eingabe = Modechoose();
 			}
 			//Exeption handling, wenn Format-Exception aufritt
 			catch (FormatException)
@@ -32,14 +31,17 @@ namespace Rechner
 			//Rückgabe der Eingabe
 			return Eingabe;
 		}
+
 		private static int Modechoose()
 		{
 			//Zuweisung der Eingabe zu Variable
 			string Eingabe = Console.ReadLine();
+			//Abfrage ob Eingabe ein Zeichen lang
 			if (Eingabe.Length == 1)
 			{
 				try
 				{
+					//Rückgabe der Einagbe
 					return Convert.ToInt32(Eingabe);
 				}
 				catch (FormatException)
@@ -47,14 +49,13 @@ namespace Rechner
 					FormExMessage();
 					return 0;
 				}
-				
 			}
 			else
 			{
 				Console.Write("Die Eingabe darf nur ein Zeichen lang sein!\nBitte Eingabe erneut versuchen!\n> ");
+				//Neustart der Abfrgae
 				return Modechoose();
 			}
-			
 		}
 
 		//Benutzereingabe des Bruches
@@ -63,13 +64,13 @@ namespace Rechner
 			//Erstellung eines Arrays zum speichern der Bruchwerte
 			int[] temp = new int[2];
 			//Eingabeaufforderung für den Zähler
-			Console.Write("Geben sie den Zaeler des Bruches ein: \n");
+			Console.Write("Geben sie den Zaeler des Bruches ein:\n> ");
 			try
 			{
 				//Zuweisung zu Array index 0
 				temp[0] = Convert.ToInt32(Console.ReadLine());
 				//Eigabeaufforderung für den Nenner
-				Console.Write("Geben sie den Nenner des Bruches ein: \n");
+				Console.Write("Geben sie den Nenner des Bruches ein:\n> ");
 				//Zuweisung zu Array index 1
 				temp[1] = Convert.ToInt32(Console.ReadLine());
 			}
@@ -88,16 +89,18 @@ namespace Rechner
 			//Rückgabe des Arrays
 			return CreateBruch(temp);
 		}
+
 		//Erstellung des Bruches
 		private static Bruch CreateBruch(int[] temp)
 		{
 			return new Bruch(temp[0], temp[1]);
 		}
+
 		//Benutzereingabe für Grundrechnung
 		public static double UserGrund()
 		{
 			//Eingabeaufforderung
-			Console.Write("Geben sie ihre Zahl ein!: \n");
+			Console.Write("Geben sie ihre Zahl ein!:\n> ");
 			double Zahl;
 			try
 			{
@@ -119,18 +122,19 @@ namespace Rechner
 			//Rückgabe Zahl
 			return Zahl;
 		}
+
 		public static int Repeat()
 		{
 			//Ausgabe Frage
-			Console.WriteLine("Wollen sie rechnen? Y/N");
+			Console.Write("Wollen sie nochmal rechnen? Y/N\n> ");
 			//Zuweisung der Antwort zu Variable
 			char Eingabe = Convert.ToChar(Console.ReadLine());
-			//Bei Eingabe y/Y wird 1 returnt
+			//Bei Eingabe y/Y wird 1 zurückgegeben
 			if (Eingabe == 'y' || Eingabe == 'Y')
 			{
 				return 1;
 			}
-			//Bei Eingabe n/N wird 2 returnt
+			//Bei Eingabe n/N wird 2 zurückgegeben
 			else if (Eingabe == 'n' || Eingabe == 'N')
 			{
 				return 2;
@@ -140,7 +144,6 @@ namespace Rechner
 				Console.WriteLine("Ungültige Eingabe");
 				return 0;
 			}
-
 		}
 
 		//Nachricht bei Format-Exception
@@ -152,6 +155,7 @@ namespace Rechner
 			//Beendigung des Programms
 			Environment.Exit(1);
 		}
+
 		//Nachricht bei DivisionbyZero Exception
 		public static void DivZeroExMessage()
 		{
@@ -161,6 +165,7 @@ namespace Rechner
 			//Beendingung des Programms
 			Environment.Exit(1);
 		}
+
 		//Nachricht bei anderer Exception
 		public static void ExMessage()
 		{

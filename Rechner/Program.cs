@@ -30,15 +30,18 @@ namespace Rechner
 					break;
 
 				default:
+					//Ruft Abfrage der Rechnungsart durch aufruf der Main erneit auf
 					Main(new string [1]);
 					break;
 			}
+			//Aufruf der Methode Nochmal()
 			Nochmal();
 		}
+
 		static void AuswBruch(Bruch bruch, Bruch bruch2)
 		{
 			//Ausgabe Frage zu Opperator
-			Console.Write("Geben sie ihren Rechenoperator ein:(+,-,*,/) \n");
+			Console.Write("Geben sie ihren Rechenoperator ein:(+,-,*,/)\n> ");
 			switch (Convert.ToChar(Console.ReadLine()))
 			{
 				case '+':
@@ -71,10 +74,11 @@ namespace Rechner
 					break;
 			}
 		}
+
 		static void AuswGrund(double Zahl1, double Zahl2)
 		{
 			//Ausgabe Frage nach Opperator
-			Console.Write("Geben sie ihren Rechenoperator ein:(+,-,*,/) \n");
+			Console.Write("Geben sie ihren Rechenoperator ein:(+,-,*,/)\n> ");
 			switch (Convert.ToChar(Console.ReadLine()))
 			{
 				case '+':
@@ -99,15 +103,14 @@ namespace Rechner
 					break;
 			}
 		}
+
 		//Abfrage ob nochmal gerechnet werden soll
 		public static void Nochmal()
-
 		{
 			//Erstellung Objekt von der Klasse UserInput
 			UserInput userInput = new UserInput();
 			//Zuweisung der Benutzereingabe zu einer Variablen
 			int antw = UserInput.Repeat();
-
 			switch (antw)
 			{
 				//Wenn eins, wird die Main-Methode wiederholt
