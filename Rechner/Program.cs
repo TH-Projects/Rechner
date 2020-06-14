@@ -47,25 +47,25 @@ namespace Rechner
 				case '+':
 					//Aufruf der Bruchaddition
 					bruch.AddBruch(bruch2);
-					//Ausgabe Bruch
+					bruch.kuerzen();
 					bruch.Print();
 					break;
 				case '-':
 					//Aufruf der Bruchsubtraktion
 					bruch.SubBruch(bruch2);
-					//Ausgabe Bruch
+					bruch.kuerzen();
 					bruch.Print();
 					break;
 				case '*':
 					//Aufruf der Bruchmultiplikation
 					bruch.Multibruch(bruch2);
-					//Ausgabe Bruch
+					bruch.kuerzen();
 					bruch.Print();
 					break;
 				case '/':
 					//Aufruf der Bruchdivision
 					bruch.DivBruch(bruch2);
-					//Ausgabe Bruch
+					bruch.kuerzen();
 					bruch.Print();
 					break;
 				default:

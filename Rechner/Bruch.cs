@@ -9,6 +9,7 @@ namespace Rechner
 		int Zaehler = 1;
 		public Bruch(int Zaeler, int Nenner)
 		{
+
 			//Abfrage zur Vorbeugungen von unnötigen Schritten, da Rechnen mit Null als Nenner unnötig
 			if (Nenner != 0)
 			{
@@ -104,5 +105,20 @@ namespace Rechner
 				UserInput.DivZeroExMessage();
 			}
 		}
+
+		public void kuerzen()
+		{
+			int kuerzer = (Zaehler > Nenner) ? Zaehler : Nenner;
+			for(int i= kuerzer; i > int.MinValue; i--)
+			{
+				if(Zaehler % i == 0 && Nenner % i == 0)
+				{
+					Zaehler = Zaehler / i;
+					Nenner = Nenner / i;
+					break;
+				}				
+			}
+		}
 	}
 }
+
