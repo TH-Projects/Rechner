@@ -32,7 +32,7 @@ namespace Rechner
 			return Eingabe;
 		}
 
-		private static int Modechoose()
+		public static int Modechoose()
 		{
 			//Zuweisung der Eingabe zu Variable
 			string Eingabe = Console.ReadLine();
@@ -126,23 +126,17 @@ namespace Rechner
 		public static int Repeat()
 		{
 			//Ausgabe Frage
-			Console.Write("Wollen sie nochmal rechnen? Y/N\n> ");
-			//Zuweisung der Antwort zu Variable
-			char Eingabe = Convert.ToChar(Console.ReadLine());
-			//Bei Eingabe y/Y wird 1 zurückgegeben
-			if (Eingabe == 'y' || Eingabe == 'Y')
+			Console.Write("Wollen sie nochmal rechnen? Ja(1) Nein(2)\n> ");
+			int Eingabe=Modechoose();
+			switch (Eingabe)
 			{
-				return 1;
-			}
-			//Bei Eingabe n/N wird 2 zurückgegeben
-			else if (Eingabe == 'n' || Eingabe == 'N')
-			{
-				return 2;
-			}
-			else
-			{
-				Console.WriteLine("Ungültige Eingabe");
-				return 0;
+				case 1:
+					return 1;
+				case 2:
+					return 2;
+				default:
+					Console.WriteLine("Ungültige Eingabe");
+					return 0;
 			}
 		}
 
