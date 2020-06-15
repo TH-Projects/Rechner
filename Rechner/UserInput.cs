@@ -9,23 +9,8 @@ namespace Rechner
 		{
 			//Frage nach Eingabe
 			Console.Write("Was wollen sie Rechnen?\nBruchrechnen(1)\nRechnen mit Grundrechenarten(2)\n> ");
-			int Eingabe;
-			try
-			{
-				Eingabe = Modechoose();
-			}
-			//Exeption handling, wenn Format-Exception aufritt
-			catch (FormatException)
-			{
-				FormExMessage();
-				return 0;
-			}
-			//Exception handling, falls andere Exception
-			catch (Exception)
-			{
-				ExMessage();
-				return 0;
-			}
+			//Aufruf der Modechoose Methode und zuweisung des Rückgabewerts
+			int	Eingabe = Modechoose();
 			//Konsole berreinigen
 			Console.Clear();
 			//Rückgabe der Eingabe

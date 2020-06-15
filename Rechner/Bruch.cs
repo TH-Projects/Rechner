@@ -108,7 +108,10 @@ namespace Rechner
 
 		public void kuerzen()
 		{
+			//Größmöglicher gemeinsamer teiler wird ermittelt
 			int kuerzer = (Zaehler > Nenner) ? Zaehler : Nenner;
+
+			//Herunterzählende Schleife um tatsächlichen größten Teiler zu finden
 			for(int i= kuerzer; i > int.MinValue; i--)
 			{
 				if(Zaehler % i == 0 && Nenner % i == 0)
