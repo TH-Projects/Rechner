@@ -20,6 +20,7 @@ namespace Rechner
 			{
 				//Ausgabe, dass ein Fehler vorliegt
 				Console.WriteLine("Fehler");
+				Environment.Exit(0);
 			}
 		}
 
@@ -102,7 +103,7 @@ namespace Rechner
 			}
 			else
 			{
-				UserInput.DivZeroExMessage();
+				ExceptionHandling.DivZeroExMessage();
 			}
 		}
 
