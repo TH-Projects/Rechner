@@ -7,26 +7,26 @@ namespace Rechner
 		public static void Main(string[] args)
 		{
 			//Abfrage der Rechnungsart
-			int Decision = UserInput.UserOption();
-			switch (Decision)
+			int decision = UserInput.UserOption();
+			switch (decision)
 			{
 				//Auswahl: Bruchrechnen
 				case 1:
 					//Erstellung Bruch eins
-					Bruch bruch = UserInput.UserBruch();
+					Fraction fraction = UserInput.UserFrac();
 					//Erstellung Bruch zwei
-					Bruch bruch2 = UserInput.UserBruch();
+					Fraction fraction2 = UserInput.UserFrac();
 					//Aufruf Methode AuswBruch
-					AuswBruch(bruch, bruch2);
+					DecFrac(fraction, fraction2);
 					break;
 
 				//Auswahl: Grundrechnung
 				case 2:
 					//Zuweisung der Zahlen eins und zwei
-					double Zahl1 = UserInput.UserGrund();
-					double Zahl2 = UserInput.UserGrund();
+					double num1 = UserInput.UserBasic();
+					double num2 = UserInput.UserBasic();
 					//Aufruf Methode AuswGrund
-					AuswGrund(Zahl1, Zahl2);
+					DecBasic(num1, num2);
 					break;
 
 				default:
@@ -35,10 +35,10 @@ namespace Rechner
 					break;
 			}
 			//Aufruf der Methode Nochmal()
-			Nochmal();
+			Again();
 		}
 
-		static void AuswBruch(Bruch bruch, Bruch bruch2)
+		static void DecFrac(Fraction frac, Fraction frac2)
 		{
 			//Ausgabe Frage zu Opperator
 			Console.Write("Geben sie ihren Rechenoperator ein:(+,-,*,/)\n> ");
@@ -46,27 +46,27 @@ namespace Rechner
 			{
 				case '+':
 					//Aufruf der Bruchaddition
-					bruch.AddBruch(bruch2);
-					bruch.kuerzen();
-					bruch.Print();
+					frac.AddFrac(frac2);
+					frac.ShortFrac();
+					frac.Print();
 					break;
 				case '-':
 					//Aufruf der Bruchsubtraktion
-					bruch.SubBruch(bruch2);
-					bruch.kuerzen();
-					bruch.Print();
+					frac.SubFrac(frac2);
+					frac.ShortFrac();
+					frac.Print();
 					break;
 				case '*':
 					//Aufruf der Bruchmultiplikation
-					bruch.Multibruch(bruch2);
-					bruch.kuerzen();
-					bruch.Print();
+					frac.MultiplyFrac(frac2);
+					frac.ShortFrac();
+					frac.Print();
 					break;
 				case '/':
 					//Aufruf der Bruchdivision
-					bruch.DivBruch(bruch2);
-					bruch.kuerzen();
-					bruch.Print();
+					frac.DivFrac(frac2);
+					frac.ShortFrac();
+					frac.Print();
 					break;
 				default:
 					//Wenn falscher Opperator
@@ -75,7 +75,7 @@ namespace Rechner
 			}
 		}
 
-		static void AuswGrund(double Zahl1, double Zahl2)
+		static void DecBasic(double Zahl1, double Zahl2)
 		{
 			//Ausgabe Frage nach Opperator
 			Console.Write("Geben sie ihren Rechenoperator ein:(+,-,*,/)\n> ");
@@ -83,19 +83,19 @@ namespace Rechner
 			{
 				case '+':
 					//Aufruf der Addition mit Ausgabe
-					Console.WriteLine(Grundrechenarten.Addition(Zahl1, Zahl2));
+					Console.WriteLine(BasicArithmeticOperation.Addition(Zahl1, Zahl2));
 					break;
 				case '-':
 					//Aufruf der Subtraktion mit Ausgabe
-					Console.WriteLine(Grundrechenarten.Subtraktion(Zahl1, Zahl2));
+					Console.WriteLine(BasicArithmeticOperation.Subtraction(Zahl1, Zahl2));
 					break;
 				case '*':
 					//Aufruf der Multiplikation mit Ausgabe
-					Console.WriteLine(Grundrechenarten.Multiplikation(Zahl1, Zahl2));
+					Console.WriteLine(BasicArithmeticOperation.Multiply(Zahl1, Zahl2));
 					break;
 				case '/':
 					//Aufruf der Division mit Ausgabe
-					Console.WriteLine(Grundrechenarten.Division(Zahl1, Zahl2));
+					Console.WriteLine(BasicArithmeticOperation.Division(Zahl1, Zahl2));
 					break;
 				default:
 					//Wenn falscher Opperator
@@ -105,13 +105,13 @@ namespace Rechner
 		}
 
 		//Abfrage ob nochmal gerechnet werden soll
-		public static void Nochmal()
+		public static void Again()
 		{
 			//Erstellung Objekt von der Klasse UserInput
 			UserInput userInput = new UserInput();
 			//Zuweisung der Benutzereingabe zu einer Variablen
-			int antw = UserInput.Repeat();
-			switch (antw)
+			int answ = UserInput.Repeat();
+			switch (answ)
 			{
 				//Wenn eins, wird die Main-Methode wiederholt
 				case 1:
@@ -125,7 +125,7 @@ namespace Rechner
 				default:
 					Console.WriteLine("Fehler!");
 					//Erneuter Aufruf der Nochmal()-Methode
-					Nochmal();
+					Again();
 					break;
 			}
 		}

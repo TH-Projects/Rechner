@@ -2,19 +2,19 @@
 
 namespace Rechner
 {
-	class Bruch
+	class Fraction
 	{
 		//Definition der Bruchkomponenten
-		int Nenner = 1;
-		int Zaehler = 1;
-		public Bruch(int Zaeler, int Nenner)
+		int denominator = 1;
+		int counter = 1;
+		public Fraction(int counter, int denominator)
 		{
 
 			//Abfrage zur Vorbeugungen von unnötigen Schritten, da Rechnen mit Null als Nenner unnötig
-			if (Nenner != 0)
+			if (denominator != 0)
 			{
-				this.Zaehler = Zaeler;
-				this.Nenner = Nenner;
+				this.counter = counter;
+				this.denominator = denominator;
 			}
 			else
 			{
@@ -28,97 +28,97 @@ namespace Rechner
 		public void Print()
 		{
 			//Ausgabe
-			Console.WriteLine("{0}/{1}", Zaehler, Nenner);
+			Console.WriteLine("{0}/{1}", counter, denominator);
 		}
 
 		//Addition von Brüchen
-		public void AddBruch(Bruch bruch2)
+		public void AddFrac(Fraction frac2)
 		{
 			//Abfrage zur Vermeidung unnötiger Schritte
-			if (Nenner == bruch2.Nenner)
+			if (denominator == frac2.denominator)
 			{
-				Zaehler += bruch2.Zaehler;
+				counter += frac2.counter;
 			}
 			else
 			{
 				//Aufruf der Bruchanpassung um Brüche auf gleichen Nenner zu bringen
-				Bruchanpassung(bruch2);
+				AdjustFrac(frac2);
 				//Addtion der Brüche
-				Zaehler += bruch2.Zaehler;
+				counter += frac2.counter;
 			}
 		}
 
 		//Subtraktion von Brüchen
-		public void SubBruch(Bruch bruch2)
+		public void SubFrac(Fraction frac2)
 		{
 			//Abfrage zur Vermeidung unnötiger Schritte
-			if (Nenner == bruch2.Nenner)
+			if (denominator == frac2.denominator)
 			{
-				Zaehler -= bruch2.Zaehler;
+				counter -= frac2.counter;
 			}
 			else
 			{
 				//Aufruf der Bruchanpassung um Brüche auf gleichen Nenner zu bringen
-				Bruchanpassung(bruch2);
+				AdjustFrac(frac2);
 				//Subtraktion der Brüche
-				Zaehler -= bruch2.Zaehler;
+				counter -= frac2.counter;
 			}
 		}
 
-		private void Bruchanpassung(Bruch bruch2)
+		private void AdjustFrac(Fraction frac2)
 		{
 			//Zwischenspeicherung des Nenners, da dieser Verändert wird
-			int tempnenn = Nenner;
+			int tempdeno = denominator;
 			//Nennermultiplikation 
-			Nenner *= bruch2.Nenner;
+			denominator *= frac2.denominator;
 			//Multiplikation mit den Nenner des zweiten Bruches
-			Zaehler *= bruch2.Nenner;
+			counter *= frac2.denominator;
 			//Nennermultiplikation mit zwischengespeichertem Nenner des ersten Bruches
-			bruch2.Nenner *= tempnenn;
+			frac2.denominator *= tempdeno;
 			//Zählermultiplikation mit zwischengespeichertem Nenner des ersten Bruches
-			bruch2.Zaehler *= tempnenn;
+			frac2.counter *= tempdeno;
 		}
 
 		//Multiplikation von Brüchen
-		public void Multibruch(Bruch bruch2)
+		public void MultiplyFrac(Fraction frac2)
 		{
 			//Zähler mal Zähler und Nenner mal Nenner
-			Nenner *= bruch2.Nenner;
-			Zaehler *= bruch2.Zaehler;
+			denominator *= frac2.denominator;
+			counter *= frac2.counter;
 		}
 
 		//Division von Brüchen
-		public void DivBruch(Bruch bruch2)
+		public void DivFrac(Fraction frac2)
 		{
-			if (bruch2.Zaehler != 0)
+			if (frac2.counter != 0)
 			{
 				//Zwischenspeicherung des Zählers, da dieser verändert wird
-				int tempzael = bruch2.Zaehler;
+				int tempcounter = frac2.counter;
 				//Vertauschung von Nenner und Zähler des zweiten Bruches
-				bruch2.Zaehler = bruch2.Nenner;
-				bruch2.Nenner = tempzael;
+				frac2.counter = frac2.denominator;
+				frac2.denominator = tempcounter;
 				//Einfach Zähler mal Zähler und Nenner mal Nenner
-				Nenner *= bruch2.Nenner;
-				Zaehler *= bruch2.Zaehler;
+				denominator *= frac2.denominator;
+				counter *= frac2.counter;
 			}
 			else
 			{
-				ExceptionHandling.DivZeroExMessage();
+				ExceptionMessage.DivZeroExMessage();
 			}
 		}
 
-		public void kuerzen()
+		public void ShortFrac()
 		{
 			//Größmöglicher gemeinsamer teiler wird ermittelt
-			int kuerzer = (Zaehler > Nenner) ? Zaehler : Nenner;
+			int LPD = (counter > denominator) ? counter : denominator;
 
 			//Herunterzählende Schleife um tatsächlichen größten Teiler zu finden
-			for(int i= kuerzer; i > int.MinValue; i--)
+			for(int i= LPD; i > int.MinValue; i--)
 			{
-				if(Zaehler % i == 0 && Nenner % i == 0)
+				if(counter % i == 0 && denominator % i == 0)
 				{
-					Zaehler = Zaehler / i;
-					Nenner = Nenner / i;
+					counter = counter / i;
+					denominator = denominator / i;
 					break;
 				}				
 			}

@@ -2,37 +2,37 @@
 
 namespace Rechner
 {
-	class Grundrechenarten
+	class BasicArithmeticOperation
 	{
 		//Addition
-		public static double Addition(double Zahl1, double Zahl2)
+		public static double Addition(double num1, double num2)
 		{
 			//Rückgabe der addierten Zahlen
-			return Zahl1 + Zahl2;
+			return num1 + num2;
 		}
 
 		//Subtraktion
-		public static double Subtraktion(double Zahl1, double Zahl2)
+		public static double Subtraction(double num1, double num2)
 		{
 			//Rückgabe der subtrahierten Zahlen
-			return Zahl1 - Zahl2;
+			return num1 - num2;
 		}
 
 		//Multiplikation
-		public static double Multiplikation(double Zahl1, double Zahl2)
+		public static double Multiply(double num1, double num2)
 		{
 			//Rückgabe der multiplizierten Zahlen
-			return Zahl1 * Zahl2;
+			return num1 * num2;
 		}
 
 		//Division
-		public static double Division(double Zahl1, double Zahl2)
+		public static double Division(double num1, double num2)
 		{
 			//Abfrage, da nicht duch null geteilt werden kann
-			if (Zahl2 != 0)
+			if (num2 != 0)
 			{
 				//Rückgabe der dividierten Zahlen
-				return Zahl1 / Zahl2;
+				return num1 / num2;
 			}
 			else
 			{
@@ -42,10 +42,10 @@ namespace Rechner
 				Console.ReadKey();
 				Console.Clear();
 				//Zuweisung der Zahlen eins und zwei
-				Zahl1 = UserInput.UserGrund();
-				Zahl2 = UserInput.UserGrund();
+				num1 = UserInput.UserBasic();
+				num2 = UserInput.UserBasic();
 				//Rekursiever Aufruf der Division mit neuen Zahlen
-				return Division(Zahl1, Zahl2);
+				return Division(num1, num2);
 			}
 		}
 	}

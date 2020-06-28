@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Rechner
 {
-	class ExceptionHandling
+	class ExceptionMessage
 	{
 		//Nachricht bei Format-Exception
 		public static void FormExMessage()

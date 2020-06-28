@@ -10,28 +10,28 @@ namespace Rechner
 			//Frage nach Eingabe
 			Console.Write("Was wollen sie Rechnen?\nBruchrechnen(1)\nRechnen mit Grundrechenarten(2)\n> ");
 			//Aufruf der Modechoose Methode und zuweisung des Rückgabewerts
-			int	Eingabe = Modechoose();
+			int	input = Modechoose();
 			//Konsole berreinigen
 			Console.Clear();
 			//Rückgabe der Eingabe
-			return Eingabe;
+			return input;
 		}
 
 		public static int Modechoose()
 		{
 			//Zuweisung der Eingabe zu Variable
-			string Eingabe = Console.ReadLine();
+			string input = Console.ReadLine();
 			//Abfrage ob Eingabe ein Zeichen lang
-			if (Eingabe.Length == 1)
+			if (input.Length == 1)
 			{
 				try
 				{
 					//Rückgabe der Einagbe
-					return Convert.ToInt32(Eingabe);
+					return Convert.ToInt32(input);
 				}
 				catch (FormatException)
 				{
-					ExceptionHandling.FormExMessage();
+					ExceptionMessage.FormExMessage();
 					return 0;
 				}
 			}
@@ -44,7 +44,7 @@ namespace Rechner
 		}
 
 		//Benutzereingabe des Bruches
-		public static Bruch UserBruch()
+		public static Fraction UserFrac()
 		{
 			//Erstellung eines Arrays zum speichern der Bruchwerte
 			int[] temp = new int[2];
@@ -62,58 +62,56 @@ namespace Rechner
 			//Exeption handling, wenn Format-Exception aufritt
 			catch (FormatException)
 			{
-				ExceptionHandling.FormExMessage();
-				return null;
+				ExceptionMessage.FormExMessage();
 			}
 			//Exception handling, falls andere Exception
 			catch (Exception)
 			{
-				ExceptionHandling.ExMessage();
-				return null;
+				ExceptionMessage.ExMessage();
 			}
 			//Rückgabe des Arrays
-			return CreateBruch(temp);
+			return CreateFrac(temp);
 		}
 
 		//Erstellung des Bruches
-		private static Bruch CreateBruch(int[] temp)
+		private static Fraction CreateFrac(int[] temp)
 		{
-			return new Bruch(temp[0], temp[1]);
+			return new Fraction(temp[0], temp[1]);
 		}
 
 		//Benutzereingabe für Grundrechnung
-		public static double UserGrund()
+		public static double UserBasic()
 		{
 			//Eingabeaufforderung
 			Console.Write("Geben sie ihre Zahl ein!:\n> ");
-			double Zahl;
+			double num;
 			try
 			{
 				//Zuweisung der Eingabe zu Variable
-				Zahl = Convert.ToDouble(Console.ReadLine());
+				num = Convert.ToDouble(Console.ReadLine());
 			}
 			//Exeption handling, wenn Format-Exception aufritt
 			catch (FormatException)
 			{
-				ExceptionHandling.FormExMessage();
+				ExceptionMessage.FormExMessage();
 				return 0;
 			}
 			//Exception handling, falls andere Exception
 			catch (Exception)
 			{
-				ExceptionHandling.ExMessage();
+				ExceptionMessage.ExMessage();
 				return 0;
 			}
 			//Rückgabe Zahl
-			return Zahl;
+			return num;
 		}
 
 		public static int Repeat()
 		{
 			//Ausgabe Frage
 			Console.Write("Wollen sie nochmal rechnen? Ja(1) Nein(2)\n> ");
-			int Eingabe=Modechoose();
-			switch (Eingabe)
+			int input = Modechoose();
+			switch (input)
 			{
 				case 1:
 					return 1;
