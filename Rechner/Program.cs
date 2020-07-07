@@ -16,7 +16,7 @@ namespace Rechner
 					Fraction fraction = UserInput.UserFrac();
 					//Erstellung Bruch zwei
 					Fraction fraction2 = UserInput.UserFrac();
-					//Aufruf Methode AuswBruch
+					//Aufruf Methode DecFrac
 					DecFrac(fraction, fraction2);
 					break;
 
@@ -25,16 +25,16 @@ namespace Rechner
 					//Zuweisung der Zahlen eins und zwei
 					double num1 = UserInput.UserBasic();
 					double num2 = UserInput.UserBasic();
-					//Aufruf Methode AuswGrund
+					//Aufruf Methode DecBasic
 					DecBasic(num1, num2);
 					break;
 
 				default:
-					//Ruft Abfrage der Rechnungsart durch aufruf der Main erneit auf
+					//Ruft Abfrage der Rechnungsart durch Aufruf der Main erneut auf
 					Main(new string [1]);
 					break;
 			}
-			//Aufruf der Methode Nochmal()
+			//Aufruf der Methode Again
 			Again();
 		}
 
@@ -71,6 +71,7 @@ namespace Rechner
 				default:
 					//Wenn falscher Opperator
 					Console.WriteLine("Fehlerhafter Opperator!");
+					Environment.Exit(1);
 					break;
 			}
 		}
@@ -100,6 +101,7 @@ namespace Rechner
 				default:
 					//Wenn falscher Opperator
 					Console.WriteLine("Fehlerhafter Opperator!");
+					Environment.Exit(1);
 					break;
 			}
 		}
@@ -107,8 +109,6 @@ namespace Rechner
 		//Abfrage ob nochmal gerechnet werden soll
 		public static void Again()
 		{
-			//Erstellung Objekt von der Klasse UserInput
-			UserInput userInput = new UserInput();
 			//Zuweisung der Benutzereingabe zu einer Variablen
 			int answ = UserInput.Repeat();
 			switch (answ)

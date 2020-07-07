@@ -44,7 +44,7 @@ namespace Rechner
 				//Zuweisung der Zahlen eins und zwei
 				num1 = UserInput.UserBasic();
 				num2 = UserInput.UserBasic();
-				//Rekursiever Aufruf der Division mit neuen Zahlen
+				//Aufruf der Division mit neuen Zahlen
 				return Division(num1, num2);
 			}
 		}

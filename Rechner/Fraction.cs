@@ -41,7 +41,7 @@ namespace Rechner
 			}
 			else
 			{
-				//Aufruf der Bruchanpassung um Brüche auf gleichen Nenner zu bringen
+				//Aufruf der AdjustFrac Methode um Brüche auf gleichen Nenner zu bringen
 				AdjustFrac(frac2);
 				//Addtion der Brüche
 				counter += frac2.counter;
@@ -58,7 +58,7 @@ namespace Rechner
 			}
 			else
 			{
-				//Aufruf der Bruchanpassung um Brüche auf gleichen Nenner zu bringen
+				//Aufruf der AdjustFrac Methode um Brüche auf gleichen Nenner zu bringen
 				AdjustFrac(frac2);
 				//Subtraktion der Brüche
 				counter -= frac2.counter;
