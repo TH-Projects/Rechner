@@ -17,7 +17,7 @@ namespace Rechner
 					//Erstellung Bruch zwei
 					Fraction fraction2 = UserInput.UserFrac();
 					//Aufruf Methode DecFrac
-					DecFrac(fraction, fraction2);
+					Operator(fraction, fraction2,decision,0,0);
 					break;
 
 				//Auswahl: Grundrechnung
@@ -26,7 +26,7 @@ namespace Rechner
 					double num1 = UserInput.UserBasic();
 					double num2 = UserInput.UserBasic();
 					//Aufruf Methode DecBasic
-					DecBasic(num1, num2);
+					Operator(null,null,decision,num1, num2);
 					break;
 
 				default:
@@ -38,65 +38,64 @@ namespace Rechner
 			Again();
 		}
 
-		static void DecFrac(Fraction frac, Fraction frac2)
+		static void Operator(Fraction frac, Fraction frac2, int decision, double num1, double num2)
 		{
 			//Ausgabe Frage zu Opperator
 			Console.Write("Geben sie ihren Rechenoperator ein:(+,-,*,/)\n> ");
 			switch (Convert.ToChar(Console.ReadLine()))
 			{
 				case '+':
-					//Aufruf der Bruchaddition
-					frac.AddFrac(frac2);
-					frac.ShortFrac();
-					frac.Print();
+					if (decision == 1)
+					{
+						//Aufruf der Bruchaddition
+						frac.AddFrac(frac2);
+						frac.ShortFrac();
+						frac.Print();
+					}
+					else if (decision == 0)
+					{
+						//Aufruf der Addition mit Ausgabe
+						Console.WriteLine(BasicArithmeticOperation.Addition(num1, num2));
+					}
 					break;
 				case '-':
-					//Aufruf der Bruchsubtraktion
-					frac.SubFrac(frac2);
-					frac.ShortFrac();
-					frac.Print();
+					if (decision == 1)
+					{
+						//Aufruf der Bruchsubtraktion
+						frac.SubFrac(frac2);
+						frac.ShortFrac();
+						frac.Print();
+					}
+					else if(decision == 2)
+					{
+						Console.WriteLine(BasicArithmeticOperation.Subtraction(num1, num2));
+					}
 					break;
 				case '*':
-					//Aufruf der Bruchmultiplikation
-					frac.MultiplyFrac(frac2);
-					frac.ShortFrac();
-					frac.Print();
+					if(decision == 1)
+					{
+						//Aufruf der Bruchmultiplikation
+						frac.MultiplyFrac(frac2);
+						frac.ShortFrac();
+						frac.Print();
+					}
+					else if (decision == 2)
+					{
+						Console.WriteLine(BasicArithmeticOperation.Multiply(num1, num2));
+					}
 					break;
 				case '/':
-					//Aufruf der Bruchdivision
-					frac.DivFrac(frac2);
-					frac.ShortFrac();
-					frac.Print();
-					break;
-				default:
-					//Wenn falscher Opperator
-					Console.WriteLine("Fehlerhafter Opperator!");
-					Environment.Exit(1);
-					break;
-			}
-		}
-
-		static void DecBasic(double Zahl1, double Zahl2)
-		{
-			//Ausgabe Frage nach Opperator
-			Console.Write("Geben sie ihren Rechenoperator ein:(+,-,*,/)\n> ");
-			switch (Convert.ToChar(Console.ReadLine()))
-			{
-				case '+':
-					//Aufruf der Addition mit Ausgabe
-					Console.WriteLine(BasicArithmeticOperation.Addition(Zahl1, Zahl2));
-					break;
-				case '-':
-					//Aufruf der Subtraktion mit Ausgabe
-					Console.WriteLine(BasicArithmeticOperation.Subtraction(Zahl1, Zahl2));
-					break;
-				case '*':
-					//Aufruf der Multiplikation mit Ausgabe
-					Console.WriteLine(BasicArithmeticOperation.Multiply(Zahl1, Zahl2));
-					break;
-				case '/':
-					//Aufruf der Division mit Ausgabe
-					Console.WriteLine(BasicArithmeticOperation.Division(Zahl1, Zahl2));
+					if (decision == 1)
+					{
+						//Aufruf der Bruchdivision
+						frac.DivFrac(frac2);
+						frac.ShortFrac();
+						frac.Print();
+					}
+					else if (decision == 2)
+					{
+						Console.WriteLine(BasicArithmeticOperation.Division(num1, num2));
+					}			
 					break;
 				default:
 					//Wenn falscher Opperator
